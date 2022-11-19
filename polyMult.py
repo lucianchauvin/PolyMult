@@ -28,13 +28,13 @@ def fft2D(x,y):
     w_list = [w**(b) for b in range(max([len(x), len(y)]))]
 
     #x and y evaluated at these roots of unity, mod it cause we are just walking around the circle drawn by the roots of unity <- one of the most brilliant parts of the fft
-    h1 = [sum([x[v]*(w_list[(v*c)%max([len(x), len(y)])]) for c in range(max([len(x), len(y)]))]) for v in range(max([len(x), len(y)]))]
-    h2 = [sum([y[v]*(w_list[(v*c)%max([len(x), len(y)])]) for c in range(max([len(x), len(y)]))]) for v in range(max([len(x), len(y)]))]
+    h1 = [sum([x[v]*(w_list[(v*c)%max([len(x), len(y)])]) for c in range(max([len(x), len(y)]))]) for v in range(max([len(x), len(y)]))] #fft1
+    h2 = [sum([y[v]*(w_list[(v*c)%max([len(x), len(y)])]) for c in range(max([len(x), len(y)]))]) for v in range(max([len(x), len(y)]))] #fft2
 
     #point wise multiplication
     mult = [h1[a]*h2[a] for a in range(max([len(x), len(y)]))]
 
-    #inverse fft of our new matrix????
+    #inverse fft of our new matrix???? <- i know this is all i need to do i just dont know it yet i understand everything else tho
 
 
     return h1
